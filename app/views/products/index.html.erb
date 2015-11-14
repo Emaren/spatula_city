@@ -1,0 +1,26 @@
+<%= render "nav" %>
+<%= link_to "New Product", new_product_path %>
+<br>
+<table>
+  <tr>
+    <th>Title: </th>
+    <th>Price: </th>
+    <th>Info: </th>
+    <th><colspan="4"></th>
+  </tr>
+
+<% @products.each do |product| %>
+
+  <tr>
+    <td><%= product.title %></td>
+    <td><%= product.price %></td>
+    <td><%= product.info %></td>
+  <td><%= link_to "Show", product_path(product) %></td>
+  <td><%= link_to "Edit", products_path(product) %></td>
+  <td><%= link_to "Destroy", product_path(product),
+                            method: :delete,
+                            data: { confirm: "Confirm Deletion?"}
+                            %></td>
+  </tr>
+<% end %>
+</table>

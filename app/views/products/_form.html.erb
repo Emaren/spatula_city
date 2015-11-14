@@ -1,0 +1,36 @@
+
+<%= form_for :product do |f| %>
+
+  <% if @product.errors.any? %>
+  <div id="error_explanation">
+
+  <h2>
+    <%= pluralize  @product.errors.count, "error" %> prohibited this product from being saved:
+    </h2>
+    <ul>
+<% @product.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+
+
+<div class="">
+<%= f.label :title %>
+<%= f.text_field :title %>
+</div><br>
+<div class="">
+<%= f.label :price %>
+<%= f.text_field :price, data: {autonumeric: {aSign: 'CAD ', mDec: 0}} %>
+</div><br>
+<div class="">
+<%= f.label :info %>
+</div>
+
+<div class="">
+<%= f.text_area :info %>
+</div>
+<%= f.submit %>
+<% end %>
