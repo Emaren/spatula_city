@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+    authenticate_user
     @product = Product.new
   end
 

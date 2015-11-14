@@ -1,0 +1,16 @@
+<%= render "/layouts/nav" %>
+
+<% @users.each do |user| %>
+
+<ol>
+  <li><%= user.first_name  %></li>
+  <li><%= user.last_name  %></li>
+  <li><%= user.email  %></li>
+  <li><%= user.password  %></li>
+  <li><%= user.password_confirmation  %></li>
+  <li><%= link_to "Delete", user_path(user),
+                            method: :delete,
+                            data: {confirm: "Confirm Deletion?"} %></li>
+  <li><%= link_to "Edit", edit_user_path(user) %></li>
+</ol>
+<% end %>
